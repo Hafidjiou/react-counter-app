@@ -1,1 +1,13 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><title>React Counter App</title><link rel="icon" href="favicon.ico"/><script defer="defer" src="/react-counter-app/static/js/main.3f180cf4.js"></script><link href="/react-counter-app/static/css/main.828bb516.css" rel="stylesheet"></head><body><div id="root"></div></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><title>React Counter App</title><meta http-equiv="Content-Security-Policy" content="img-src 'self' data: https://hafidjiou.github.io;"><script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script><script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script><script src="https://unpkg.com/@babel/standalone/babel.min.js"></script><script defer="defer" src="/react-counter-app/static/js/main.3f180cf4.js"></script><link href="/react-counter-app/static/css/main.828bb516.css" rel="stylesheet"></head><body><div id="root"></div><script type="text/babel">const { useState } = React;
+
+      function Counter() {
+        const [count, setCount] = useState(0);
+        return (
+          <div>
+            <h1>Compteur : {count}</h1>
+            <button onClick={() => setCount(count + 1)}>Incrémenter</button>
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById('root')).render(<Counter />);</script></body></html>
