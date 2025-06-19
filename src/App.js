@@ -1,15 +1,32 @@
-// src/App.js
+import React, { useState } from 'react';
 
-import React from 'react';
-import Counter from './components/Counter'; // ✅ Chemin corrigé
+function Counter() {
+  const [count, setCount] = useState(0);
 
-function App() {
+  const increment = () => {
+    setCount(count + 1);
+  };
+
+  const decrement = () => {
+    if (count <= 0) return; // bloque la décrémentation si count <= 0
+
+    setCount(prevCount => {
+      const newCount = Math.max(prevCount - 1, 0);
+      console.log("Avant décrément:", prevCount, "Après décrément:", newCount);
+      return newCount;
+    });
+  };
+
+  const reset = () => setCount(0);
+
   return (
-    <div className="App">
-      <h1>Mon Application de Compteur</h1>
-      <Counter />
+    <div style={{ textAlign: 'center', marginTop: 50 }}>
+      <p style={{ fontSize: 24 }}>Compteur : {count}</p>
+      <button onClick={increment} style={{ marginRight: 10 }}>Incrémenter</button>
+      <button onClick={decrement} disabled={count <= 0} style={{ marginRight: 10 }}>Décrémenter</button>
+      <button onClick={reset}>Réinitialiser</button>
     </div>
   );
 }
 
-export default App;
+export default Counter;
